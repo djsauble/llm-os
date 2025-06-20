@@ -1,12 +1,9 @@
-import { Home } from '@mui/icons-material';
-import { Typography } from '@mui/material';
+import Home from './pages/Home';
+import './App.css';
 
 function App() {
   return (
-    <>
-      <Home fontSize='large'/>
-      <Typography variant="h1" component="h2" gutterBottom>Hello, world!</Typography>  
-    </>
+    <Home />
   )
 }
 
