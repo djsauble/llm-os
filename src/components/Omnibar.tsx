@@ -11,11 +11,11 @@ interface OmnibarProps {
 
 function ChatInput() {
   return (
-    <div className="input h-40">
+    <div className="input">
       <textarea
-        placeholder="What do you want to chat about?"
+        placeholder="Describe the task you want to accomplish"
         className="flex-1 w-full text-lg resize-none bg-transparent border-0 focus:outline-none placeholder-slate-400"
-        rows={3}
+        rows={10}
       />
       
       <Toolbar.Root className="flex justify-end mt-2">
