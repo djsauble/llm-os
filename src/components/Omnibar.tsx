@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Toolbar } from '@base-ui-components/react/toolbar';
 import type { Mode } from '../types';
 import { MODE } from '../types';
 import { Send, MicOff, VideoOff } from 'react-feather';
@@ -9,12 +10,6 @@ interface OmnibarProps {
 }
 
 function ChatInput() {
-  const navigate = useNavigate();
-
-  const handleSend = () => {
-    navigate('/definition');
-  };
-
   return (
     <div className="input h-40">
       <textarea
@@ -23,14 +18,14 @@ function ChatInput() {
         rows={3}
       />
       
-      <div className="flex justify-end mt-2">
-        <button 
-          onClick={handleSend}
+      <Toolbar.Root className="flex justify-end mt-2">
+        <Toolbar.Button
+          render={<RouterLink to="/definition" />}
           className="px-2 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm"
         >
           <Send className="w-6 h-6"/>
-        </button>
-      </div>
+        </Toolbar.Button>
+      </Toolbar.Root>
     </div>
   );
 }
