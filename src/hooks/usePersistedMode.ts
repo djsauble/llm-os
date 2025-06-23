@@ -6,7 +6,6 @@ const STORAGE_KEY = 'llm-os-mode';
 
 export function usePersistedMode(): [Mode, (mode: Mode) => void] {
   const [mode, setMode] = useState<Mode>(() => {
-    // Initialize from localStorage or default to 'chat'
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored && isValidMode(stored)) {
@@ -19,7 +18,6 @@ export function usePersistedMode(): [Mode, (mode: Mode) => void] {
   });
 
   useEffect(() => {
-    // Persist to localStorage whenever mode changes
     try {
       localStorage.setItem(STORAGE_KEY, mode);
     } catch (error) {
@@ -30,7 +28,6 @@ export function usePersistedMode(): [Mode, (mode: Mode) => void] {
   return [mode, setMode];
 }
 
-// Type guard to validate mode values
 function isValidMode(value: string): value is Mode {
   return MODES.includes(value as Mode);
 }
