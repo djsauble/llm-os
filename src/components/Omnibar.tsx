@@ -21,7 +21,7 @@ function ChatInput() {
       <Toolbar.Root className="flex justify-end mt-2">
         <Toolbar.Button
           render={<RouterLink to="/definition" />}
-          className="px-2 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm"
+          className="btn-icon-primary"
         >
           <Send className="w-6 h-6"/>
         </Toolbar.Button>

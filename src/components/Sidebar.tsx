@@ -8,7 +8,7 @@ function Sidebar() {
   return (
     <NavigationMenu.Root className="bg-slate-50 p-4 flex flex-col">
       <NavigationMenu.List className="flex md:flex-col max-md:space-x-4 md:space-y-4 items-center">
-        <NavigationMenu.Item className={`btn-icon p-4 ${location.pathname === '/' ? 'bg-gray-200 text-gray-800 shadow-inner border-gray-300' : ''}`}>
+        <NavigationMenu.Item className={`${location.pathname === '/' ? 'btn-icon-secondary-active' : 'btn-icon-secondary'}`}>
           <NavigationMenu.Link
             render={<RouterLink to="/" />}
             aria-label="Home"
@@ -16,7 +16,7 @@ function Sidebar() {
             <Command className="w-6 h-6" />
           </NavigationMenu.Link>
         </NavigationMenu.Item>
-        <NavigationMenu.Item className={`btn-icon p-4 ${location.pathname === '/definition' ? 'bg-gray-200 text-gray-800 shadow-inner border-gray-300' : ''}`}>
+        <NavigationMenu.Item className={`${location.pathname === '/definition' ? 'btn-icon-secondary-active' : 'btn-icon-secondary'}`}>
           <NavigationMenu.Link
             render={<RouterLink to="/definition" />}
             aria-label="Task Definition"

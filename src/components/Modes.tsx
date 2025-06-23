@@ -34,7 +34,7 @@ export default function Modes({ value = MODE.CHAT, onChange }: ModesProps) {
     <div className="flex gap-1 bg-slate-50 rounded-full">
       <button
         onClick={() => handleModeClick(MODE.CHAT)}
-        className={`btn-icon p-4 ${value === MODE.CHAT ? 'bg-white shadow-sm' : ''}`}
+        className={`${value === MODE.CHAT ? 'btn-icon-secondary-active' : 'btn-icon-secondary'}`}
         aria-label="Chat mode"
       >
         <MessageCircle className="w-6 h-6" />
@@ -42,7 +42,7 @@ export default function Modes({ value = MODE.CHAT, onChange }: ModesProps) {
 
       <button
         onClick={() => handleModeClick(MODE.AUDIO)}
-        className={`btn-icon p-4 ${(value === MODE.AUDIO || value === MODE.AUDIO_PAUSED) ? 'bg-white shadow-sm' : ''}`}
+        className={`${(value === MODE.AUDIO || value === MODE.AUDIO_PAUSED) ? 'btn-icon-secondary-active' : 'btn-icon-secondary'}`}
         aria-label={value === MODE.AUDIO_PAUSED ? 'Resume audio' : 'Audio mode'}
       >
         {value === MODE.AUDIO_PAUSED ? (
@@ -54,7 +54,7 @@ export default function Modes({ value = MODE.CHAT, onChange }: ModesProps) {
 
       <button
         onClick={() => handleModeClick(MODE.VIDEO)}
-        className={`btn-icon p-4 ${(value === MODE.VIDEO || value === MODE.VIDEO_PAUSED) ? 'bg-white shadow-sm' : ''}`}
+        className={`${(value === MODE.VIDEO || value === MODE.VIDEO_PAUSED) ? 'btn-icon-secondary-active' : 'btn-icon-secondary'}`}
         aria-label={value === MODE.VIDEO_PAUSED ? 'Resume video' : 'Video mode'}
       >
         {value === MODE.VIDEO_PAUSED ? (
