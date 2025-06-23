@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import { Toolbar } from '@base-ui-components/react/toolbar';
 import type { Mode } from '../types';
-import { Send } from 'react-feather';
-import { MicOff, VideoOff } from 'react-feather';
+import { MODE } from '../types';
+import { Send, MicOff, VideoOff } from 'react-feather';
 
 interface OmnibarProps {
   mode: Mode;
@@ -16,11 +18,14 @@ function ChatInput() {
         rows={3}
       />
       
-      <div className="flex justify-end mt-2">
-        <button className="px-2 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm">
+      <Toolbar.Root className="flex justify-end mt-2">
+        <Toolbar.Button
+          render={<RouterLink to="/definition" />}
+          className="btn-icon-primary"
+        >
           <Send className="w-6 h-6"/>
-        </button>
-      </div>
+        </Toolbar.Button>
+      </Toolbar.Root>
     </div>
   );
 }
@@ -128,9 +133,9 @@ function VideoInput({ isActive }: { isActive: boolean }) {
 export default function Omnibar({ mode }: OmnibarProps) {
   return (
     <div className="flex items-center justify-center h-full w-full max-w-2xl">
-      {mode === 'chat' && <ChatInput />}
-      {(mode === 'audio' || mode === 'audio-paused') && <AudioInput isActive={mode === 'audio'} />}
-      {(mode === 'video' || mode === 'video-paused') && <VideoInput isActive={mode === 'video'} />}
+      {mode === MODE.CHAT && <ChatInput />}
+      {(mode === MODE.AUDIO || mode === MODE.AUDIO_PAUSED) && <AudioInput isActive={mode === MODE.AUDIO} />}
+      {(mode === MODE.VIDEO || mode === MODE.VIDEO_PAUSED) && <VideoInput isActive={mode === MODE.VIDEO} />}
     </div>
   );
 }

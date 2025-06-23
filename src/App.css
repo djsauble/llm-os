@@ -1,16 +1,28 @@
 @import "tailwindcss";
 
 @layer components {
-  .btn-icon {
-    @apply transition-colors duration-200 border border-transparent rounded-full;
+  .btn-icon-primary {
+    @apply transition-colors duration-200 border border-transparent rounded-full p-4 bg-blue-500 text-white;
+
+    @variant hover {
+      @apply bg-blue-600;
+    }
+  }
+
+  .btn-icon-primary-active {
+    @apply transition-colors duration-200 border border-transparent rounded-full p-4 bg-blue-700 text-white;
+  }
+
+  .btn-icon-secondary {
+    @apply transition-colors duration-200 border border-transparent rounded-full p-4;
 
     @variant hover {
       @apply bg-gray-100;
     }
+  }
 
-    @variant data-[checked] {
-      @apply bg-gray-200 text-gray-800 shadow-inner border-gray-300;
-    }
+  .btn-icon-secondary-active {
+    @apply transition-colors duration-200 border border-transparent rounded-full p-4 bg-gray-200;
   }
 
   .input {

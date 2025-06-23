@@ -1,19 +1,31 @@
-import { Radio } from '@base-ui-components/react/radio';
-import { RadioGroup } from '@base-ui-components/react/radio-group';
-import { Command } from 'react-feather';
+import { NavigationMenu } from '@base-ui-components/react/navigation-menu';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Command, Plus } from 'react-feather';
 
 function Sidebar() {
+  const location = useLocation();
+
   return (
-    <div className="bg-slate-50 p-4 flex flex-col">
-      <RadioGroup
-        defaultValue="home"
-        className="flex md:flex-col max-md:space-x-4 md:space-y-4 items-center"
-      >
-        <Radio.Root value="home" aria-label="Home" className="btn-icon p-4">
-          <Command className="w-6 h-6" />
-        </Radio.Root>
-      </RadioGroup>
-    </div>
+    <NavigationMenu.Root className="bg-slate-50 p-4 flex flex-col">
+      <NavigationMenu.List className="flex md:flex-col max-md:space-x-4 md:space-y-4 items-center">
+        <NavigationMenu.Item className={`${location.pathname === '/' ? 'btn-icon-secondary-active' : 'btn-icon-secondary'}`}>
+          <NavigationMenu.Link
+            render={<RouterLink to="/" />}
+            aria-label="Home"
+          >
+            <Command className="w-6 h-6" />
+          </NavigationMenu.Link>
+        </NavigationMenu.Item>
+        <NavigationMenu.Item className={`${location.pathname === '/definition' ? 'btn-icon-secondary-active' : 'btn-icon-secondary'}`}>
+          <NavigationMenu.Link
+            render={<RouterLink to="/definition" />}
+            aria-label="Task Definition"
+          >
+            <Plus className="w-6 h-6" />
+          </NavigationMenu.Link>
+        </NavigationMenu.Item>
+      </NavigationMenu.List>
+    </NavigationMenu.Root>
   );
 }
 

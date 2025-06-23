@@ -1,10 +1,10 @@
-import Omnibar from '../components/Omnibar';
 import Sidebar from '../components/Sidebar';
 import Modes from '../components/Modes';
 import Page from '../components/Page';
+import TaskFlow from '../components/TaskFlow';
 import { usePersistedMode } from '../hooks/usePersistedMode';
 
-function Home() {
+function Definition() {
   const [selectedMode, setSelectedMode] = usePersistedMode();
 
   return (
@@ -12,11 +12,11 @@ function Home() {
       sidebar={<Sidebar />}
       modes={<Modes value={selectedMode} onChange={setSelectedMode} />}
     >
-      <div className="flex-1 w-full flex flex-col gap-4 items-center justify-center h-full">
-        <Omnibar mode={selectedMode} />
+      <div className="flex-1 w-full h-full">
+        <TaskFlow />
       </div>
     </Page>
   );
 }
 
-export default Home;
+export default Definition;
