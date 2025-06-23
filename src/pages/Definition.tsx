@@ -1,6 +1,7 @@
 import Sidebar from '../components/Sidebar';
 import Modes from '../components/Modes';
 import Page from '../components/Page';
+import TaskFlow from '../components/TaskFlow';
 import { usePersistedMode } from '../hooks/usePersistedMode';
 
 function Definition() {
@@ -11,8 +12,8 @@ function Definition() {
       sidebar={<Sidebar />}
       modes={<Modes value={selectedMode} onChange={setSelectedMode} />}
     >
-      <div className="flex-1 w-full flex flex-col gap-4 items-center justify-center h-full">
-        <h1>Task definition</h1>
+      <div className="flex-1 w-full h-full">
+        <TaskFlow />
       </div>
     </Page>
   );
