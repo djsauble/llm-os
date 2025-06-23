@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import type { Mode } from '../types';
+import { MODE } from '../types';
 import { Send } from 'react-feather';
 import { MicOff, VideoOff } from 'react-feather';
 
@@ -128,9 +129,9 @@ function VideoInput({ isActive }: { isActive: boolean }) {
 export default function Omnibar({ mode }: OmnibarProps) {
   return (
     <div className="flex items-center justify-center h-full w-full max-w-2xl">
-      {mode === 'chat' && <ChatInput />}
-      {(mode === 'audio' || mode === 'audio-paused') && <AudioInput isActive={mode === 'audio'} />}
-      {(mode === 'video' || mode === 'video-paused') && <VideoInput isActive={mode === 'video'} />}
+      {mode === MODE.CHAT && <ChatInput />}
+      {(mode === MODE.AUDIO || mode === MODE.AUDIO_PAUSED) && <AudioInput isActive={mode === MODE.AUDIO} />}
+      {(mode === MODE.VIDEO || mode === MODE.VIDEO_PAUSED) && <VideoInput isActive={mode === MODE.VIDEO} />}
     </div>
   );
 }

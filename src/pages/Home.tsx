@@ -1,12 +1,11 @@
-import { useState } from 'react';
 import Omnibar from '../components/Omnibar';
 import Sidebar from '../components/Sidebar';
 import Modes from '../components/Modes';
 import Page from '../components/Page';
-import type { Mode } from '../types';
+import { usePersistedMode } from '../hooks/usePersistedMode';
 
 function Home() {
-  const [selectedMode, setSelectedMode] = useState<Mode>('chat');
+  const [selectedMode, setSelectedMode] = usePersistedMode();
 
   return (
     <Page
