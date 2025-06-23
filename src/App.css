@@ -7,10 +7,6 @@
     @variant hover {
       @apply bg-gray-100;
     }
-
-    @variant data-[checked] {
-      @apply bg-gray-200 text-gray-800 shadow-inner border-gray-300;
-    }
   }
 
   .input {
