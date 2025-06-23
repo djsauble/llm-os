@@ -51,7 +51,7 @@ const initialNodes = [
   {
     id: 'task-3',
     type: 'task',
-    position: { x: 500, y: 125 },
+    position: { x: 700, y: 100 },
     data: { 
       label: 'Report Generation Task',
       description: 'Create comprehensive report from analysis results'
@@ -60,7 +60,7 @@ const initialNodes = [
   {
     id: 'output-1',
     type: 'output',
-    position: { x: 700, y: 125 },
+    position: { x: 1050, y: 100 },
     data: { label: 'Task Output' },
   },
 ] as any[];
