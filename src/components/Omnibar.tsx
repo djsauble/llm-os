@@ -20,7 +20,7 @@ function ChatInput() {
       
       <Toolbar.Root className="flex justify-end mt-2">
         <Toolbar.Button
-          render={<RouterLink to="/definition" />}
+          render={<RouterLink to="/app/create" />}
           className="btn-icon-primary"
         >
           <Send className="w-6 h-6"/>

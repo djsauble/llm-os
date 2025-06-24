@@ -1,16 +1,21 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AppProvider } from './context/AppContext';
 import Home from './pages/Home';
-import Definition from './pages/Definition';
+import CreateApp from './pages/CreateApp';
+import ViewApp from './pages/ViewApp';
 import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/definition" element={<Definition />} />
-      </Routes>
-    </BrowserRouter>
+    <AppProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/app/create" element={<CreateApp />} />
+          <Route path="/app/:id" element={<ViewApp />} />
+        </Routes>
+      </BrowserRouter>
+    </AppProvider>
   )
 }
 
