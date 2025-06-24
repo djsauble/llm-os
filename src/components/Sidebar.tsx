@@ -1,9 +1,11 @@
 import { NavigationMenu } from '@base-ui-components/react/navigation-menu';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
-import { Command, Plus } from 'react-feather';
+import { Command, Plus, MessageSquare } from 'react-feather';
+import { useAppContext } from '../context/AppContext';
 
 function Sidebar() {
   const location = useLocation();
+  const { apps } = useAppContext();
 
   return (
     <NavigationMenu.Root className="bg-slate-50 p-4 flex flex-col">
@@ -16,10 +18,23 @@ function Sidebar() {
             <Command className="w-6 h-6" />
           </NavigationMenu.Link>
         </NavigationMenu.Item>
-        <NavigationMenu.Item className={`${location.pathname === '/definition' ? 'btn-icon-secondary-active' : 'btn-icon-secondary'}`}>
+        {apps.map(app => (
+          <NavigationMenu.Item 
+            key={app.id} 
+            className={`${location.pathname === `/app/${app.id}` ? 'btn-icon-secondary-active' : 'btn-icon-secondary'}`}
+          >
+            <NavigationMenu.Link
+              render={<RouterLink to={`/app/${app.id}`} />}
+              aria-label={app.name}
+            >
+              <MessageSquare className="w-6 h-6" />
+            </NavigationMenu.Link>
+          </NavigationMenu.Item>
+        ))}
+        <NavigationMenu.Item className={`${location.pathname === '/app/create' ? 'btn-icon-secondary-active' : 'btn-icon-secondary'}`}>
           <NavigationMenu.Link
-            render={<RouterLink to="/definition" />}
-            aria-label="Task Definition"
+            render={<RouterLink to="/app/create" />}
+            aria-label="Create New App"
           >
             <Plus className="w-6 h-6" />
           </NavigationMenu.Link>
