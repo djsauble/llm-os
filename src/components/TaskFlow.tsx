@@ -24,12 +24,13 @@ const nodeTypes = {
   output: OutputNode,
 };
 
+const edgeTypes = {};
+
 interface TaskFlowProps {
   data: TaskFlowData;
 }
 
 export default function TaskFlow({ data }: TaskFlowProps) {
-  // Validate the data
   const validatedData = TaskFlowSchema.parse(data);
   
   const [nodes, , onNodesChange] = useNodesState(validatedData.nodes);
@@ -49,6 +50,7 @@ export default function TaskFlow({ data }: TaskFlowProps) {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         nodeTypes={nodeTypes}
+        edgeTypes={edgeTypes}
         fitView
       >
         <Controls />
